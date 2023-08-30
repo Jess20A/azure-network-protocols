@@ -20,10 +20,11 @@ In this overview, we observe various network traffic to and from Azure Virtual M
 
 <h2>High-Level Steps</h2>
 
-- Step 1
-- Step 2
-- Step 3
-- Step 4
+- Create Virtual Machines
+- Install Wireshark
+- Create Inbound Security Rules
+- Observe Live Network Traffic
+
 
 <h2>Actions and Observations</h2>
 
@@ -32,7 +33,7 @@ In this overview, we observe various network traffic to and from Azure Virtual M
 
 <img width="369" alt="image" src="https://github.com/Jess20A/azure-network-protocols/assets/142112890/ff5805e4-2dd1-4a77-bae4-908f418f321d">
 
-To observe the network traffic two virtual machines will need to be created, one running windows 10 and the other running linux. 
+To observe the network traffic two virtual machines will need to be created, one running windows 10 (VM1) and the other running linux (VM2).  
 
 
 
@@ -41,14 +42,20 @@ To observe the network traffic two virtual machines will need to be created, one
 
 
 <p>
-To inspect traffic Wireshark will need to be downloaded and installed. This is a protocol analyzer that will let you see the live traffic happening on your virtual machines.
+To inspect traffic Wireshark will need to be downloaded and installed. This is a protocol analyzer that will let you see the live traffic happening on your virtual machines. We will be observing traffic from VM1 to VM2.
 </p>
 
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+<img width="471" alt="image" src="https://github.com/Jess20A/azure-network-protocols/assets/142112890/1667a080-99af-482a-aa78-35bdfb7c4db0">
+
+
+In Microsoft Azure by going to Network Security Groups for VM2 and then Inbound Security Rules, you can add new rules that can deny or allow certain network traffic and observe the changes. 
+
+
+<img width="808" alt="image" src="https://github.com/Jess20A/azure-network-protocols/assets/142112890/138aceac-45b5-4ecf-9ffd-a56d73a921e4">
+
+
+This picture shows ICMP traffic going from being blocked to being allowed to come through from VM1 to VM2. You can also open up Power Shell and by pinging VM2's Private IP Address you will see replies or timed out requests.
+
+
